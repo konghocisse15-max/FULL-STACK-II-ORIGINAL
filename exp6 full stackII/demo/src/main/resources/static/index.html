@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Experiment 6.1 - Posts API</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="header">
+
+            <h1>Posts Management</h1>
+
+            <p>
+                Experiment 6.1 — Pagination, Sorting & Filtering
+            </p>
+
+        </div>
+
+
+        <!-- CONTROL PANEL -->
+        <div class="control-card">
+
+            <h2>API Controls</h2>
+
+            <div class="controls">
+
+                <!-- AUTHOR FILTER -->
+                <div class="control-group">
+
+                    <label for="author">
+                        Filter by Author
+                    </label>
+
+                    <input
+                        type="text"
+                        id="author"
+                        placeholder="Enter author"
+                    >
+
+                </div>
+
+
+                <!-- TITLE FILTER -->
+                <div class="control-group">
+
+                    <label for="title">
+                        Filter by Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Enter title"
+                    >
+
+                </div>
+
+
+                <!-- SORT FIELD -->
+                <div class="control-group">
+
+                    <label for="sortBy">
+                        Sort By
+                    </label>
+
+                    <select id="sortBy">
+
+                        <option value="id">
+                            ID
+                        </option>
+
+                        <option value="title">
+                            Title
+                        </option>
+
+                        <option value="author">
+                            Author
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- SORT DIRECTION -->
+                <div class="control-group">
+
+                    <label for="direction">
+                        Direction
+                    </label>
+
+                    <select id="direction">
+
+                        <option value="asc">
+                            Ascending ↑
+                        </option>
+
+                        <option value="desc">
+                            Descending ↓
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- PAGE SIZE -->
+                <div class="control-group">
+
+                    <label for="size">
+                        Page Size
+                    </label>
+
+                    <select id="size">
+
+                        <option value="5">
+                            5
+                        </option>
+
+                        <option value="10">
+                            10
+                        </option>
+
+                        <option value="15">
+                            15
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- APPLY BUTTON -->
+                <div class="control-group button-group">
+
+                    <label>&nbsp;</label>
+
+                    <button
+                        id="applyButton"
+                        onclick="loadPosts(0)"
+                    >
+                        Apply
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULTS -->
+        <div class="results-card">
+
+            <div class="results-header">
+
+                <div>
+
+                    <h2>Posts</h2>
+
+                    <p id="resultInfo">
+                        Loading posts...
+                    </p>
+
+                </div>
+
+                <div class="api-status">
+
+                    <span class="status-dot"></span>
+
+                    API Connected
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Title</th>
+
+                            <th>Content</th>
+
+                            <th>Author</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="postsTable">
+
+                        <tr>
+
+                            <td
+                                colspan="4"
+                                class="loading"
+                            >
+                                Loading posts...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- PAGINATION -->
+            <div class="pagination-section">
+
+                <button
+                    id="previousButton"
+                    class="page-navigation"
+                    onclick="previousPage()"
+                >
+                    ← Previous
+                </button>
+
+
+                <div
+                    id="pageNumbers"
+                    class="page-numbers"
+                >
+                </div>
+
+
+                <button
+                    id="nextButton"
+                    class="page-navigation"
+                    onclick="nextPage()"
+                >
+                    Next →
+                </button>
+
+            </div>
+
+
+            <!-- PAGE INFORMATION -->
+            <div
+                id="pageInfo"
+                class="page-info"
+            >
+            </div>
+
+        </div>
+
+
+        <!-- API INFORMATION -->
+        <div class="api-card">
+
+            <h2>Current API Request</h2>
+
+            <div
+                id="apiUrl"
+                class="api-url"
+            >
+                /api/posts
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
