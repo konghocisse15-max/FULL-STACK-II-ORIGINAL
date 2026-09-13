@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PostService</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==============================
+           ERROR RESPONSE CARD
+           ============================== */
+
+        #errorContainer {
+            display: none;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 1100px;
+            padding: 18px 22px;
+            border: 1px solid #f5b5b5;
+            border-radius: 10px;
+            background: #fff5f5;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .error-title {
+            color: #b91c1c;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .error-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 38px;
+            border-bottom: 1px solid #f1d1d1;
+            gap: 20px;
+        }
+
+        .error-row:last-child {
+            border-bottom: none;
+        }
+
+        .error-label {
+            color: #991b1b;
+            font-weight: bold;
+            min-width: 130px;
+        }
+
+        .error-value {
+            color: #222;
+            text-align: right;
+            word-break: break-all;
+        }
+
+        .error-correlation {
+            background: #ffe1e1;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        /* ==============================
+           TEST ERROR BUTTON
+           ============================== */
+
+        #testError {
+            margin: 15px 0;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            background: #dc2626;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #testError:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==============================
+         HEADER
+         ============================== -->
+
+    <header>
+        <h1>PostService</h1>
+        <span>● API Online</span>
+    </header>
+
+
+    <!-- ==============================
+         ERROR RESPONSE
+         ============================== -->
+
+    <div id="errorContainer"></div>
+
+
+    <main>
+
+        <!-- ==============================
+             CREATE POST
+             ============================== -->
+
+        <section class="create-section">
+
+            <h2>Create Post</h2>
+
+            <textarea
+                id="content"
+                placeholder="Write your post..."
+            ></textarea>
+
+            <p class="counter">0/280</p>
+
+            <h3>Platforms</h3>
+
+            <label>
+                <input type="checkbox" value="Instagram">
+                Instagram
+            </label>
+
+            <label>
+                <input type="checkbox" value="Facebook">
+                Facebook
+            </label>
+
+            <label>
+                <input type="checkbox" value="Twitter/X">
+                Twitter/X
+            </label>
+
+            <label>
+                <input type="checkbox" value="LinkedIn">
+                LinkedIn
+            </label>
+
+            <br>
+
+            <label>
+                <input type="checkbox" id="published">
+                Published
+            </label>
+
+            <button id="createPost">
+                Create Post
+            </button>
+
+        </section>
+
+
+        <!-- ==============================
+             TEST INVALID REQUEST
+             ============================== -->
+
+        <button id="testError">
+            Test Invalid Post
+        </button>
+
+
+        <!-- ==============================
+             ALL POSTS
+             ============================== -->
+
+        <section class="posts-section">
+
+            <h2>All Posts</h2>
+
+            <div id="posts">
+                <!-- Posts will appear here -->
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
